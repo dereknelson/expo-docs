@@ -6,7 +6,14 @@ Provides access to a file system stored locally on the device. Each Expo app has
 
 -   **`Expo.FileSystem.documentDirectory`**
 
-  `file://` URI pointing to the directory where user documents for this app will be stored. Files stored here will remain until explicitly deleted by the app. Ends with a trailing `/`. Example uses are for files the user saves that they expect to see again.
+  `file://` URI pointing to the directory where user documents for this app will be stored. Files stored here will remain until explicitly deleted by the app. Ends with a trailing `/`. Example uses are for files the user saves that they expect to see again. Note, when users update the app via their respective app store, the documentDirectory path will also be updated, so any cached files will need the latest path. Best practice is to append your filepath to the document directory at runtime.
+  Example: 
+  ```
+  import { FileSystem } from 'expo'
+  const folder = `${FileSystem.documentDirectory}yourPath`;
+  const file = 'someImage.jpg'
+  const filePath = `${folder}/${file}`;
+  ```
 
 -   **`Expo.FileSystem.cacheDirectory`**
 
