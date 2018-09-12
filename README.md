@@ -99,3 +99,20 @@ When we release a new SDK, we copy the `unversioned` directory, and rename it to
 That's all you need to do. The `versions` directory is listed on server start to find all available versions. The routes and navbar contents are automatically inferred from the directory structure within `versions`. So, `/versions/v24.0.0/guides/development-mode` refers to `pages/versions/guides/development-mode`.
 
 Because the navbar is automatically generated from the directory structure, the default ordering of the links under each section is alphabetical. However, for many sections, this is not ideal UX. So, if you wish to override the alphabetical ordering, manipulate page titles in `sidebar-navigation-order.js`.
+
+#### Importing from the React Native docs
+
+You can import the React Native docs in an automated way into these docs.
+
+1. Update the react-native-website submodule here
+2. `yarn run import-react-native-docs`
+
+This will write all the relevant RN doc stuff into the unversioned version directory.
+You may need to tweak the script as the source docs change; the script hackily translates between the different forms of markdown that have different quirks.
+
+The React Native docs are actually versioned but we currently read off of master. 
+
+TODOs:
+    - Handle image sizing in imports better
+    - Read from the appropriate version (configurable) of the React Native docs, not just master
+    - Make Snack embeds work; these are marked in some of the React Native docs but they are just imported as plain JS code blocks

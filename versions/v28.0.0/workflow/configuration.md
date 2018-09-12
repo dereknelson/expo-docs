@@ -187,7 +187,7 @@ Configuration for remote (push) notifications.
   "notification": {
     /* 
       Local path or remote url to an image to use as the icon for push notifications. 
-      48x48 png grayscale with transparency. 
+      96x96 png grayscale with transparency.
     */
     "icon": STRING,
 
@@ -337,7 +337,7 @@ Configuration for how and when the app should request OTA JavaScript updates
       A boolean indicating if the app uses iCloud Storage for DocumentPicker. 
       See DocumentPicker docs for details.
     */
-    "useIcloudStorage": BOOLEAN,
+    "usesIcloudStorage": BOOLEAN,
 
     "config": {
       /*
@@ -353,7 +353,7 @@ Configuration for how and when the app should request OTA JavaScript updates
       /*
         Sets `ITSAppUsesNonExemptEncryption` in the standalone ipa's Info.plist to the given boolean value.
       */
-      "usesNonExemptEncryption": STRING,
+      "usesNonExemptEncryption": BOOLEAN,
 
       /*
         Google Maps iOS SDK key for your standalone app. 
